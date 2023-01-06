@@ -1,0 +1,402 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- <link href="style/default.css" rel="stylesheet" type="text/css" /> -->
+
+<title>Creative Resume Template with CSS3, Google Font API &amp; jQuery</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="js/scroll-startstop.events.jquery.js" type="text/javascript"></script>
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css' />
+<style>
+    /* ======= Rest  ==========   */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, a{margin:0px; padding:0px;}
+
+
+body{background-image:url(images/background-tile.jpg); font-family:Arial, Helvetica, sans-serif;  font-size:15px; color:#4D4D4D;}
+#wrapper{margin:20px auto; width:999px;}
+.clear{clear:both;}
+
+/*   =====  Main and Sub headings   ======   */
+h1 { font-family: 'Yanone Kaffeesatz', arial, serif;  text-shadow: 2px 2px 2px #000; font-size:202px; color:#fff;}
+h2{font-family: 'Crimson Text', arial, serif; font-size:35px; color:#000; font-weight:bold;}
+h2 a, h2 a:visited, h2 a:active{font-family: 'Crimson Text', arial, serif; font-size:35px; color:#000; font-weight:normal; text-decoration:none; font-weight:bold;}
+h2 a:hover{color:#FF9900}
+
+/*   =====  Top header   ======   */
+
+#header:after{ clear:both; display:block; content:"";}
+#header ul{color:#fff; font-size:14px; float:right; list-style:none; margin-top:10px;}
+#header ul li{padding-bottom:6px;}
+
+/*   =====  Links on the top   ======   */
+
+#contact-info{color:#fff; font-size:14px; width:100%; border-bottom:2px dashed #000;  padding-bottom:20px; float:left;  }
+#contact-info .col1, #contact-info .col2{text-align:left; display:table-cell;}
+#contact-info .col1{text-align:right; padding-right:10px;}
+#contact-info a, #contact-info a:active, #contact-info a:visited{color:#FADA00; text-decoration:none;}
+#contact-info a:hover{color:#FFFF00; text-decoration:none; text-shadow: 0px 0px 5px #fff;}
+.links{float:left; margin-left:155px;}
+
+/*   =====  Introduction text   ======   */
+
+#intro{margin-top:10px;}
+#intro:after{ clear:both; display:block; content:"";}
+#intro p{font-family: 'Crimson Text', arial, serif; font-size:45px; color:#fff; }
+#intro p:selection{color:#000;}
+.highlight{color:#FADA00;}
+
+::selection{background: #000; color:#fff;}       /* Safari */
+::-moz-selection{background: #000; color:#fff;}  /* Firefox */
+
+
+/*   =====  Sections   ======   */
+.section{margin:30px 0px 30px 0px;}
+.section:after{ clear:both; display:block; content:"";}
+.section-title{background-image:url(images/section-title-bg.png); background-repeat:no-repeat; width:171px; height:41px; float:left;}
+.section-title:after{ clear:both; display:block; content:"";}
+.section-title p{padding:7px 0px 0px 7px; font-weight:bold;}
+.section-body{background-color:#fff; width:94%; margin:-10px 0px 0px 10px; padding:0px 25px 25px 25px;}
+
+.section-body div{display:inline-table;}
+.item-template{border-bottom:1px dashed #CCCCCC; width:100%; margin-bottom:25px;  margin-top:25px; padding-bottom:25px;}
+.item-template:after{clear:both; display:block; content:"";}
+.section-body p{font-size:14px; line-height:22px; margin-bottom:25px;}
+.last-item{margin-bottom:0px; border-bottom:0px;}
+
+.skill-name{float:left;}
+.skill-rating{font-family: 'Crimson Text', arial, serif; font-size:55px; float:right; border:0px solid red; line-height:1px; padding-top:43px;}
+
+
+a.hidden, a.hidden:hover, a.hidden:visited, a.hidden:active{text-decoration:none; color:#4D4D4D;}
+
+.item-template-lessmargin{border-bottom:1px dashed #CCCCCC; width:100%; margin-bottom:25px;  margin-top:0px; padding-bottom:25px;}
+.item-template-skills:lessmargin{clear:both; display:block; content:"";}
+
+.your-details{float:right;}
+.your-details ul{list-style:none; margin-top:15px;}
+.your-details ul li{padding:9px 10px 7px 40px; height:25px; display:inline; background-image:url(images/icon-check.jpg); background-repeat:no-repeat; }
+
+.text-small{font-size:12px; color:#4D4D4D; text-transform:uppercase;}
+.first{margin-bottom:3px; padding-top:10px;}
+
+#go-top{margin:-8px 0px 0px 1px;}
+.hand-cursor{cursor:pointer;}
+.scroll-links{margin:3px 0px 0px 0px; color:#fff; width:100%; text-align:right;}
+.scroll-links a, .scroll-links a:active, .scroll-links a:visited{color:#fff; font-size:10px; text-transform:uppercase;}
+.scroll-links a:hover{color:#FFFF00;}
+
+/*   =====  Footer   ======   */
+
+#footer{color:#fff; font-size:12px;}
+#footer p{margin-bottom:10px;}
+#footer div{float:left; margin-right:5px;}
+#footer a, #footer a:active, #footer a:visited{color:#FADA00; text-decoration:none;}
+#footer a:hover{color:#FFFF00;  text-shadow: 0px 0px 5px #fff;}
+
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+
+	<div id="contact-info">
+		<div  class="links" style="margin-left:0px !important;">
+			<div class="col1">Email</div>
+			<div class="col2"><a href="mailto:admin@greepit.com" target="_blank">admin@greepit.com</a></div>
+		</div>
+		
+		
+		
+		<div  class="links">
+			<div class="col1">Twitter</div>
+			<div class="col2"><a href="http://www.twitter.com/esarfraz" target="_blank">esarfraz</a></div>
+		</div>
+		
+		
+		<div  class="links">
+			<div class="col1">Blog</div>
+			<div class="col2"><a href="http://www.greepit.com" target="_blank" title="Open source web development resources">greepit.com</a></div>
+		</div>
+		
+		
+		<div class="links">
+			<div class="col1">Portfolio</div>
+			<div class="col2"><a href="http://www.esarfraz.com" target="_blank">esarfraz.com</a></div>
+		</div>
+		
+	</div>
+	
+		<div id="header">
+			<h1 style="color: black;">Sarfraz Shoukat</h1>
+			
+		</div>
+		
+
+		<div id="intro" style="color: black;">
+			<p style="color: black;">I <span class="highlight" style="color: black;">design</span> beautiful user experiences for the web. I am an easy to work with, friendly guy.</p>
+		</div>
+		
+		
+		
+		<div class="section">
+			<div class="section-title"><p id="education-section">Education</p></div>
+			<div id="skip-to-content03" class="scroll-links">
+                <a id="to-experience" class="hand-cursor">Skip to Experience</a>
+			</div>
+			
+			<div class="clear"></div>
+			<div class="section-body">
+				<div class="item-template">
+					<div>
+						<h2>National College of Arts</h2>
+						<span class="text-small">2005</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>Certification in Media Production</li>
+						</ul>
+					</div>
+				</div>
+				<p>The National College of Arts Lahore , usually referred to by its acronym NCA, is a famous old college in Lahore, Pakistan. Like all old institutions, the National College of Arts, has a historical tradition. Much of its present tone was set long ago when it was known as the Mayo School of Arts. Gazetteers written about the city of Lahore in 1915 describe the work being done at the school as one of the cultural highlights of the urban center.</p>	
+				
+				<div class="item-template">
+					<div>
+						<h2>Punjab University</h2>
+						<span class="text-small">2001 - 2004</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>Bachelor in Fine Arts</li>
+						</ul>
+					</div>
+				</div>
+				
+				<p>Established in 1882 at Lahore, the University of the Punjab is the largest and the oldest seat of higher learning in Pakistan. It was the first to be established in the sub-continent in Muslim majority area. The fact that two Nobel laureates are from this University speaks volumes for its academic and research excellence.</p>
+				
+				
+				<div class="item-template">
+					<div>
+						<h2>Punjab College</h2>
+						<span class="text-small">1999 - 2001</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>Secondary Certificate in Computer Sciences</li>
+						</ul>
+					</div>
+				</div>
+				
+				<p>Punjab College aims at providing comprehensive / adequate training facilities in Computer Science / IT &amp; Commerce related fields &amp; to transfer latest Technology to the youth of the day with zeal &amp; devotion. </p>
+				
+				
+			</div>
+		</div>
+		
+		<!-- Experience Section-->
+		<div class="section">
+			<div class="section-title"><p id="experience-section">Experience</p></div>
+			<div id="skip-to-content01" class="scroll-links">
+                <a id="bto-education" class="hand-cursor">Back to Education</a> &nbsp; | &nbsp;
+				<a id="to-skills" class="hand-cursor">Skip to Skills</a>
+			</div>
+			
+			<div class="clear"></div>
+			<div class="section-body">
+				<div class="item-template">
+					<div>
+						<h2><a href="http://www.greepit.com" target="_blank" title="Open source web development resources">greepit.com</a></h2>
+						<span class="text-small">2008</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>Photoshop</li>
+							<li>Wordpress</li>
+							<li>XHTML</li>
+							<li>CSS</li>
+						</ul>
+					</div>
+				</div>
+				
+				<p>Greepit is an ever growing blog known for best open source <a href="http://www.greepit.com" class="hidden" title="web development resources">web development resources</a> for designers and developers. This Inspirational Resource site attracts a wide variety of gurus from the IT industry ranging from SEO experts to Project Managers.</p>
+				
+				
+				<div class="item-template">
+					<div>
+						<h2><a href="http://www.speckyboy.com" target="_blank">speckyboy.com</a></h2>
+						<span class="text-small">2007</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>Photoshop</li>
+							<li>Wordpress</li>
+							<li>XHTML</li>
+							<li>CSS</li>
+						</ul>
+					</div>
+				</div>
+				
+				<p>Speckyboy Design Magazine launched in October 2007, as the personal freelance web design homepage of Paul Andrew. Somewhere over the following months this site dramatically changed direction, and evolved into the great design resource magazine that you can currently see.</p>
+				
+				
+				<div class="item-template">
+					<div>
+						<h2><a href="http://www.thelovelyplants.com" target="_blank">thelovelyplants.com</a></h2>
+						<span class="text-small">2010</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>Photoshop</li>
+							<li>Wordpress</li>
+							<li>XHTML</li>
+							<li>CSS</li>
+						</ul>
+					</div>
+				</div>
+				
+				<p>Daily tips and design ideas for <a href="http://www.thelovelyplants.com" class="hidden" title="container gardening">container gardening</a>, <a href="http://www.thelovelyplants.com" class="hidden" title="flowering trees">flowering trees</a> and <a class="hidden" href="http://www.thelovelyplants.com" title="miniature gardens">miniature gardens</a> with bonsai, succulents, cacti and other plants</p>
+				
+				
+				<div class="item-template">
+					<div>
+						<h2><a href="http://www.esarfraz.com" target="_blank">esarfraz.com</a></h2>
+						<span class="text-small">2010</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>Photoshop</li>
+							<li>XHTML</li>
+							<li>CSS</li>
+						</ul>
+					</div>
+				</div>
+				
+				<p>A personal portfolio site for Sarfraz Shoukat - A website designer  &amp; user interface designer.</p>
+				
+				
+				<div class="item-template">
+					<div>
+						<h2><a href="http://www.tekpages.net" target="_blank">tekpages.net</a></h2>
+						<span class="text-small">2010</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>Photoshop</li>
+							<li>XHTML</li>
+							<li>CSS</li>
+						</ul>
+					</div>
+				</div>
+				
+				<p>TekPages.net is a new blog dedicated to share latest 'as they happen' web resources for web designers and web developers.</p>
+				
+				
+				
+				
+				
+			</div>
+		</div>
+		
+		
+		
+		<!-- Skills -->
+		
+		<div class="section">
+			<div class="section-title"><p id="skills-section">Skills</p></div>
+			
+			<div id="skip-to-content02" class="scroll-links">
+                <a id="bto-experience" class="hand-cursor">Back to Experience</a>
+			</div>
+			
+			<div class="clear"></div>
+			<div class="section-body">
+				
+				
+				<div class="item-template">
+					<div class="skill-name">
+						<h2>Photoshop</h2>
+						<div class="text-small first">Experience - 7 years</div><br />
+						<div class="text-small">Last Used - 2010</div>
+					</div>
+					
+					<div class="skill-rating">95%</div>
+				</div>
+				
+				
+				<div class="item-template-lessmargin">
+					<div class="skill-name">
+						<h2>Corel Draw</h2>
+						<div class="text-small first">Experience - 7 years</div><br />
+						<div class="text-small">Last Used - 2010</div>
+					</div>
+					
+					<div class="skill-rating">95%</div>
+				</div>
+				
+				
+				
+				<div class="item-template-lessmargin">
+					<div class="skill-name">
+						<h2>XHTML / CSS </h2>
+						<div class="text-small first">Experience - 7 years</div><br />
+						<div class="text-small">Last Used - 2010</div>
+					</div>
+					
+					<div class="skill-rating">95%</div>
+				</div>
+				
+				
+				<div class="item-template-lessmargin">
+					<div class="skill-name">
+						<h2>jQuery - Javascript Library</h2>
+						<div class="text-small first">Experience - 3 years</div><br />
+						<div class="text-small">Last Used - 2010</div>
+					</div>
+					
+					<div class="skill-rating">45%</div>
+				</div>
+				
+				
+				<div class="item-template-lessmargin">
+					<div class="skill-name">
+						<h2>Expression Blend</h2>
+						<div class="text-small first">Experience - 0.5 years</div><br />
+						<div class="text-small">Last Used - 2010</div>
+					</div>
+					
+					<div class="skill-rating">30%</div>
+				</div>
+				
+				
+				<div class="item-template-lessmargin last-item">
+					<div class="skill-name">
+						<h2>Thanking everyone!</h2>
+						<div class="text-small first">Experience - ~29 years </div><br />
+						<div class="text-small">Last Used - Just Used :)</div>
+					</div>
+					<div class="skill-rating">100%</div>
+				</div>
+		</div>
+		
+		<div id="go-top">
+			<div id="nav_up" class="hand-cursor">
+				<img src="images/go-top.png" alt="Go to Top" />
+			</div>
+		</div>
+</div>
+
+<div id="footer">
+	<div><img src="images/creative-commons.png" alt="Creative Commons" /></div> <p><a href="http://creativecommons.org/">Creative Commons License</a> by <a href="http://www.greepit.com" target="_blank" title="Open source web development resources">Greepit</a></p>
+</div>
+</div>
+</body>
+</html>

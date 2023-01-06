@@ -1,0 +1,155 @@
+{% load static %}
+<!-- <link rel="stylesheet/css" href="{% static 'css/resumehome.scss'%}"> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Resume</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link type="text/css" rel="stylesheet" href="{% static '/css/blue.css'%}" />
+<link type="text/css" rel="stylesheet" href="{% static '/css/print.css'%}" media="print"/>
+<!--&lt;!&ndash;[if IE 7]>-->
+<!--<link href="/css/ie7.css" rel="stylesheet" type="text/css" />-->
+<!--<![endif]&ndash;&gt;-->
+<!--&lt;!&ndash;[if IE 6]>-->
+<!--<link href="/css/ie6.css" rel="stylesheet" type="text/css" />-->
+<!--<![endif]&ndash;&gt;-->
+
+<script type="text/javascript" src="{% static /js/jquery-1.4.2.min.js}"></script>
+<script type="text/javascript" src="{% static /js/jquery.tipsy.js}"></script>
+<script type="text/javascript" src="{% static /js/cufon.yui.js}"></script>
+<script type="text/javascript" src="{% static /js/scrollTo.js}"></script>
+<script type="text/javascript" src="{% static /js/myriad.js}"></script>
+<script type="text/javascript" src="{% static /js/jquery.colorbox.js}"></script>
+<script type="text/javascript" src="{% static /js/custom.js}"></script>
+<script type="text/javascript">
+		Cufon.replace('h1,h2');
+</script>
+</head>
+<body>
+<!-- Begin Wrapper -->
+<div id="wrapper">
+  <div class="wrapper-top"></div>
+  <div class="wrapper-mid">
+    <!-- Begin Paper -->
+    <div id="paper">
+      <div class="paper-top"></div>
+      <div id="paper-mid">
+        <div class="entry">
+          <!-- Begin Image -->
+          <img class="portrait" src="{% static '/images/self.jpg' %}" alt="John Smith" />
+          <!-- End Image -->
+          <!-- Begin Personal Information -->
+          <div class="self">
+            <h1 class="name">{{form.name.value}} <br />
+              <br>
+              <span>{{form.prof.value}}</span></h1>
+            <ul>
+              <li class="ad">{{form.address.value}}</li>
+              <li class="mail">{{ form.email.value }}</li>
+              <li class="tel">+91 {{ form.phone.value}}</li>
+            </ul>
+          </div>
+          <!-- End Personal Information -->
+          <!-- Begin Social -->
+          <div class="social">
+            <ul>
+              <li><a class='north' href="#" title="Download .pdf">
+                <img src="https://cdn.pixabay.com/photo/2016/12/18/13/45/download-1915753_960_720.png" alt="" srcset=""
+                height="50px" width="50px">
+              </a></li>
+
+              <li style="margin-left: 40px;"><a class='north' href="#" title="Download .pdf">
+                <img src="https://images.ctfassets.net/dm4oa8qtogq0/4dO3ShVlBlHC6eK4rDmJXc/3efb8a534b1ee58df306ba9b4959c509/Gmail.png" alt="" srcset=""
+                height="50px" width="50px">
+              </a></li>
+
+              <li><a class='north' href="javascript:window.print()" title="Print"><img src="/images/icn-print.jpg" alt="" /></a></li>
+              <li><a class='north' id="contact" href="contact/index.html" title="Contact Me"><img src="/images/icn-contact.jpg" alt="" /></a></li>
+              <li><a class='north' href="#" title="Follow me on Twitter"><img src="/images/icn-twitter.jpg" alt="" /></a></li>
+              <li><a class='north' href="#" title="My Facebook Profile"><img src="/images/icn-facebook.jpg" alt="" /></a></li>
+            </ul>
+          </div>
+          <!-- End Social -->
+        </div>
+        <!-- Begin 1st Row -->
+        <div class="entry">
+          <h2>OBJECTIVE</h2>
+          <p>{{form.objective.value}}</p>
+        </div>
+        <!-- End 1st Row -->
+        <!-- Begin 2nd Row -->
+        <div class="entry">
+          <h2>EDUCATION</h2>
+          <div class="content">
+            <h3>{{form.college_join.value}} - {{form.college_leave.value}}</h3>
+            <p>{{form.college.value}}, {{form.college_location.value}} <br />
+              <em>BE in {{form.college_field.value}}</em></p>
+          </div>
+          <div class="content">
+            <h3>{{form.school_12_join.value}} - {{form.school_12_leave.value}}</h3>
+            <p>{{form.school_12.value}}, {{form.school_12_location.value}} <br />
+              <em>XII in {{form.school_12_field.value}}</em></p>
+          </div>
+          <div class="content">
+            <h3>{{form.school_10_join.value}} - {{form.school_10_leave.value}}</h3>
+            <p>{{form.school_10.value}}, {{form.school_10_location.value}} <br />
+              <em>X</em></p>
+          </div>
+
+        </div>
+        <!-- End 2nd Row -->
+        <!-- Begin 3rd Row -->
+        <div class="entry">
+          <h2>PROJECTS</h2>
+          <div class="content">
+            <h3>{{form.project.value}}</h3>
+            <!-- <p>Agency Creative, London <br />
+              <em>Senior Web Designer</em></p> -->
+            <ul class="info">
+              <li>{{form.project_obj.value}}</li>
+              <li>{{form.project_tech.value}}</li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- End 3rd Row -->
+        <!-- Begin 4th Row -->
+        <div class="entry">
+          <h2>SKILLS</h2>
+          <div class="content">
+            <h3>{{form.skill_name_1.value}}</h3>
+            <ul class="skills">
+              <li>{{form.skill_1.value}}</li>
+            </ul>
+          </div>
+          <div class="content">
+            <h3>{{form.skill_name_2.value}}</h3>
+            <ul class="skills">
+              <li>{{form.skill_2.value}}</li>
+            </ul>
+          </div>
+          <div class="content">
+            <h3>{{form.skill_name_3.value}}</h3>
+            <ul class="skills">
+              <li>{{form.skill_3.value}}</li>
+            </ul>
+          </div>
+        </div>
+        <!-- End 4th Row -->
+        <!-- Begin 5th Row -->
+      </div>
+      <div class="clear"></div>
+      <div class="paper-bottom"></div>
+    </div>
+    <!-- End Paper -->
+  </div>
+  <div class="wrapper-bottom"></div>
+</div>
+<div id="message"><a href="#top" id="top-link">Go to Top</a></div>
+<!-- End Wrapper -->
+</body>
+</html>
+

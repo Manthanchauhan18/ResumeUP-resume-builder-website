@@ -1,0 +1,156 @@
+{% extends 'resumeHome/navbar.html' %} {% load static%}{% block title %} About
+Us {%endblock%} {% block css %}
+
+<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+/>
+
+{% endblock %} {% block body %}
+<div class="about" style="font-size: 1.5rem">
+  <div class="about__container" style="margin: 50">
+    <div class="about__title" style="font-size: 14px; letter-spacing: 1.8px;line-height: 20px;text-transform: uppercase; font-weight: 600;margin-bottom: 8px; font-size: 14px;letter-spacing: 1.8px;
+    line-height: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--neutral-50);"
+    >
+      About us
+    </div>
+    <div class="about__subtitle">
+      <p style="font-size: 2rem; color: #1e2532">
+        “Our mission is to help job seekers
+        <strong style="color: #1a91f0">grow careers</strong>. We love helping
+        people stand out in their job search and get hired faster.”
+      </p>
+    </div>
+    <div class="about__hero" style="display: flex">
+      <img
+        style="width: 50%"
+        class="about__hero-image"
+        alt="Office photo"
+        src="https://resume.io/assets/landing/about/office1-4496d42163d0455ec9be19fbb291f64a77731e56cb2363735c35a8eceeabdaef.jpg"
+      />
+      <img
+        style="width: 50%"
+        class="about__hero-image"
+        alt="Office photo"
+        src="https://resume.io/assets/landing/about/office2-dc5a669a03c19f5f7df869d0b1e53c6f6c5fc252f2ea13118b86c6183f30c4d9.jpg"
+      />
+    </div>
+    <div class="about__content">
+      <div class="about__main">
+        <div class="about__main-title">Few details</div>
+        <div class="about__main-subtitle">
+          At ResumeUp, we believe that building a job-worthy resume should be a
+          fast and simple process. In fact, we’ve always been about building
+          systems that are quick and easy-to-use, yet consistently get good
+          results.
+        </div>
+        <div class="about__main-text">
+          <p>
+            It all started in 2022, when we start searching for college Mini
+            project . After many projects searching finally we decided that we
+            build webapplication which helps students to build their resume in
+            less efforts by filling simple form our site just to build resumes.
+          </p>
+          <p>
+            In an effort to deliver more value to our users, we decided to
+            specialize in just resume-building. we devoted countless hours to
+            studying job-winning resumes, getting resume templates critiqued by
+            experts and testing our resume content through the grueling process
+            of trial &amp; error.
+          </p>
+          <p>
+            The result? We figured out that building a job-winning resume is a
+            science, not art. We learned there’s an exact structure and set of
+            ‘resume rules’ that hiring managers respond to when it comes to
+            calling back applicants.
+          </p>
+          <p>
+            Since then, we launched ResumeUp, which uses these exact job-winning
+            resume structures and ‘resume rules’ to give you the edge over your
+            competition so you get hired faster.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="height: 30vh"></div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h6>About</h6>
+        <p class="text-justify"> Our mission is to help job seekers <b>grow careers</b>. We love helping people stand out in their job search and get hired faster.
+        At ResumeUp, we believe that building a job-worthy resume should be a fast and simple process. In fact, we’ve always been about building systems that are quick and easy-to-use, yet consistently get good results
+        </p>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Categories</h6>
+        <ul class="footer-links">
+
+          <li><a href="user_resume">Resume </a></li>
+          <li><a href="user_cv">Cover Letter</a></li>
+          <li><a href="blog">Blog</a></li>
+
+        </ul>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Supports</h6>
+        <ul class="footer-links">
+          <li><a href="about">About us</a></li>
+          <li><a href="#">Our services</a></li>
+          <li><a href="privacy">Privacy Policy</a></li>
+          <li><a href="contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+          <a href="#">Keyur & Manthan</a>.
+        </p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <ul class="social-icons">
+          <li><a class="facebook" href="#"><i class="fab fa-facebook-f"> </i></a></li>
+          <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a class="dribbble" href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a class="linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+></script>
+
+{%endblock %}

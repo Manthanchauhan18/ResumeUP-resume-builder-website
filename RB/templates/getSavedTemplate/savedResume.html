@@ -1,0 +1,38 @@
+{% extends 'resumeHome/navbar.html'%}
+{% load static %}
+
+{% block body%}
+{% for profile in profile%}
+<div class="d-flex justify-content-around">
+    <div class="card" style="height: 300px; width: 300px; margin-left: 10px;">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{% static 'images/resume2.jpg' %}">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{profile.name}}<i class="material-icons right">:</i></span>
+          <p><a href="pdf"  class="btn btn-dark" >Download</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+      </div>
+    <div class="card" style="height: 300px; width: 300px; margin-left: 10px;">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{% static 'images/resume1.jpg' %}">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{profile.name}}<i class="material-icons right">:</i></span>
+          <p><a href="pdf" class="btn btn-dark">Download</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+      </div>
+      
+
+</div>
+
+{% endfor %}
+{% endblock %}

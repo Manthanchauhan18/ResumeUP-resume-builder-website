@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- <link href="style/default.css" rel="stylesheet" type="text/css" /> -->
+
+<title>Creative Resume Template with CSS3, Google Font API &amp; jQuery</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="js/scroll-startstop.events.jquery.js" type="text/javascript"></script>
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
+<style>
+    /* ======= Rest  ==========   */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, a{margin:0px; padding:0px;}
+
+
+body{background-image:url("{% static 'images/background-tile.jpg' %}"); font-family:Arial, Helvetica, sans-serif;  font-size:15px; color:#4D4D4D;}
+#wrapper{margin:20px auto; width:999px;}
+.clear{clear:both;}
+
+/*   =====  Main and Sub headings   ======   */
+h1 { font-family: 'Yanone Kaffeesatz', arial, serif;  text-shadow: 2px 2px 2px #000; font-size:202px; color:#fff;}
+h2{font-family: 'Crimson Text', arial, serif; font-size:35px; color:#000; font-weight:bold;}
+h2 a, h2 a:visited, h2 a:active{font-family: 'Crimson Text', arial, serif; font-size:35px; color:#000; font-weight:normal; text-decoration:none; font-weight:bold;}
+h2 a:hover{color:#FF9900}
+
+/*   =====  Top header   ======   */
+
+#header:after{ clear:both; display:block; content:"";}
+#header ul{color:#fff; font-size:14px; float:right; list-style:none; margin-top:10px;}
+#header ul li{padding-bottom:6px;}
+
+/*   =====  Links on the top   ======   */
+
+#contact-info{color:#fff; font-size:14px; width:100%; border-bottom:2px dashed #000;  padding-bottom:20px; float:left;  }
+#contact-info .col1, #contact-info .col2{text-align:left; display:table-cell;}
+#contact-info .col1{text-align:right; padding-right:10px;}
+#contact-info a, #contact-info a:active, #contact-info a:visited{color:#FADA00; text-decoration:none;}
+#contact-info a:hover{color:#FFFF00; text-decoration:none; text-shadow: 0px 0px 5px #fff;}
+.links{float:left; margin-left:155px;}
+
+/*   =====  Introduction text   ======   */
+
+#intro{margin-top:10px;}
+#intro:after{ clear:both; display:block; content:"";}
+#intro p{font-family: 'Crimson Text', arial, serif; font-size:45px; color:#fff; }
+#intro p:selection{color:#000;}
+.highlight{color:#FADA00;}
+
+::selection{background: #000; color:#fff;}       /* Safari */
+::-moz-selection{background: #000; color:#fff;}  /* Firefox */
+
+
+/*   =====  Sections   ======   */
+.section{margin:30px 0px 30px 0px;}
+.section:after{ clear:both; display:block; content:"";}
+.section-title{background-image:url("{% static 'images/section-title-bg.png' %}"); background-repeat:no-repeat; width:171px; height:41px; float:left;}
+.section-title:after{ clear:both; display:block; content:"";}
+.section-title p{padding:7px 0px 0px 7px; font-weight:bold;}
+.section-body{background-color:#fff; width:94%; margin:-10px 0px 0px 10px; padding:0px 25px 25px 25px;}
+
+.section-body div{display:inline-table;}
+.item-template{border-bottom:1px dashed #CCCCCC; width:100%; margin-bottom:25px;  margin-top:25px; padding-bottom:25px;}
+.item-template:after{clear:both; display:block; content:"";}
+.section-body p{font-size:14px; line-height:22px; margin-bottom:25px;}
+.last-item{margin-bottom:0px; border-bottom:0px;}
+
+.skill-name{float:left;}
+.skill-rating{font-family: 'Crimson Text', arial, serif; font-size:55px; float:right; border:0px solid red; line-height:1px; padding-top:43px;}
+
+
+a.hidden, a.hidden:hover, a.hidden:visited, a.hidden:active{text-decoration:none; color:#4D4D4D;}
+
+.item-template-lessmargin{border-bottom:1px dashed #CCCCCC; width:100%; margin-bottom:25px;  margin-top:0px; padding-bottom:25px;}
+.item-template-skills:lessmargin{clear:both; display:block; content:"";}
+
+.your-details{float:right;}
+.your-details ul{list-style:none; margin-top:15px;}
+.your-details ul li{padding:9px 10px 7px 40px; height:25px; display:inline; background-image:url("{% static 'images/icon-check.jpg' %}"); background-repeat:no-repeat; }
+
+.text-small{font-size:12px; color:#4D4D4D; text-transform:uppercase;}
+.first{margin-bottom:3px; padding-top:10px;}
+
+#go-top{margin:-8px 0px 0px 1px;}
+.hand-cursor{cursor:pointer;}
+.scroll-links{margin:3px 0px 0px 0px; color:#fff; width:100%; text-align:right;}
+.scroll-links a, .scroll-links a:active, .scroll-links a:visited{color:#fff; font-size:10px; text-transform:uppercase;}
+.scroll-links a:hover{color:#FFFF00;}
+
+/*   =====  Footer   ======   */
+
+#footer{color:#fff; font-size:12px;}
+#footer p{margin-bottom:10px;}
+#footer div{float:left; margin-right:5px;}
+#footer a, #footer a:active, #footer a:visited{color:#FADA00; text-decoration:none;}
+#footer a:hover{color:#FFFF00;  text-shadow: 0px 0px 5px #fff;}
+
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+
+	<div id="contact-info">
+		<div  class="links" style="margin-left:0px !important;">
+			<div class="col1">Email</div>
+			<div class="col2"><a href="mailto:admin@greepit.com" target="_blank">{{form.email.value}}</a></div>
+		</div>
+		
+		
+		
+		<div  class="links">
+			<div class="col1">Twitter</div>
+			<div class="col2"><a href="http://www.twitter.com/esarfraz" target="_blank">esarfraz</a></div>
+		</div>
+		
+		
+		<div  class="links">
+			<div class="col1">Blog</div>
+			<div class="col2"><a href="http://www.greepit.com" target="_blank" title="Open source web development resources">greepit.com</a></div>
+		</div>
+		
+		
+		<div class="links">
+			<div class="col1">Portfolio</div>
+			<div class="col2"><a href="http://www.esarfraz.com" target="_blank">esarfraz.com</a></div>
+		</div>
+		
+	</div>
+	
+		<div id="header">
+			<h1 style="color: black;">{{form.name.value}}</h1>
+			
+		</div>
+		
+
+		<div id="intro" style="color: black;">
+			<p style="color: black;"> {{form.objective.value}}</p>
+		</div>
+		
+		
+		
+		<div class="section">
+			<div class="section-title"><p id="education-section">Education</p></div>
+			<div id="skip-to-content03" class="scroll-links">
+                <a id="to-experience" class="hand-cursor">Skip to Experience</a>
+			</div>
+			
+			<div class="clear"></div>
+			<div class="section-body">
+				<div class="item-template">
+					<div>
+						<h2>{{form.college.value}},{{form.college_location.value}}</h2>
+						<span class="text-small">{{form.college_join.value}} - {{form.college_leave.value}}</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>BE in {{form.college_field.value}}</li>
+						</ul>
+					</div>
+				</div>
+				<p><strong>PERCENTAGE : </strong>{{form.college_per.value}}</p>	
+				
+
+                <div class="item-template">
+					<div>
+						<h2>{{form.school_12.value}},{{form.school_12_location.value}}</h2>
+						<span class="text-small">{{form.school_12_join.value}} - {{form.school_12_leave.value}}</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>XII</li>
+						</ul>
+					</div>
+				</div>
+				<p><strong>PERCENTAGE : </strong>{{form.school_12_per.value}}</p>	
+
+                <div class="item-template">
+					<div>
+						<h2>{{form.school_10.value}},{{form.school_10_location.value}}</h2>
+						<span class="text-small">{{form.school_10_join.value}} - {{form.school_10_leave.value}}</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>X</li>
+						</ul>
+					</div>
+				</div>
+				<p><strong>PERCENTAGE : </strong>{{form.school_10_per.value}}</p>	
+			</div>
+		</div>
+		
+		<!-- Experience Section-->
+		<div class="section">
+			<div class="section-title"><p id="experience-section">PROJECTS</p></div>
+			<div id="skip-to-content01" class="scroll-links">
+                <a id="bto-education" class="hand-cursor">Back to Education</a> &nbsp; | &nbsp;
+				<a id="to-skills" class="hand-cursor">Skip to Skills</a>        
+			</div>
+			
+			<div class="clear"></div>
+			<div class="section-body">
+				<div class="item-template">
+					<div>
+						<h2><a href="http://www.greepit.com" target="_blank" title="Open source web development resources">{{form.project.value}}</a></h2>
+						<span class="text-small">PRESENT</span>
+					</div>
+					
+					<div class="your-details">
+						<ul>
+							<li>{{form.project_tech.value}}</li>
+
+						</ul>
+					</div>
+				</div>
+				
+				<p>{{form.project_obj.value}}</p>
+				
+
+				
+				
+				
+				
+				
+			</div>
+		</div>
+		
+		
+		
+		<!-- Skills -->
+		
+		<div class="section">
+			<div class="section-title"><p id="skills-section">Skills</p></div>
+			
+			<div id="skip-to-content02" class="scroll-links">
+                <a id="bto-experience" class="hand-cursor">Back to Experience</a>
+			</div>
+			
+			<div class="clear"></div>
+			<div class="section-body">
+				
+				
+				<div class="item-template">
+					<div class="skill-name">
+						<h2>{{form.skill_name_1.value}}</h2>
+						<div class="text-small first">{{form.skill_1.value}}</div><br />
+					</div>
+					<div class="skill-rating">95%</div>
+				</div>
+				
+                <div class="item-template">
+					<div class="skill-name">
+						<h2>{{form.skill_name_2.value}}</h2>
+						<div class="text-small first">{{form.skill_2.value}}</div><br />
+					</div>
+					<div class="skill-rating">90%</div>
+				</div>
+                <div class="item-template">
+					<div class="skill-name">
+						<h2>{{form.skill_name_3.value}}</h2>
+						<div class="text-small first">{{form.skill_3.value}}</div><br />
+					</div>
+					<div class="skill-rating">85%</div>
+				</div>
+				
+				
+		</div>
+		
+		<div id="go-top">
+			<div id="nav_up" class="hand-cursor">
+				<img src="{% static 'images/go-top.png' %}" alt="Go to Top" />
+			</div>
+		</div>
+</div>
+
+<div id="footer">
+	<div><img src="{% static 'images/creative-commons.png' %}" alt="Creative Commons" /></div> <p><a href="http://creativecommons.org/">Creative Commons License</a> by <a href="http://www.greepit.com" target="_blank" title="Open source web development resources">Greepit</a></p>
+</div>
+</div>
+
+<br>
+    <div class="container" style="margin-left: 300px;">
+    <a class="btn btn-dark" onclick="window.print()">Download</a>
+    </div>
+    <br><br><br>	
+
+</body>
+</html>

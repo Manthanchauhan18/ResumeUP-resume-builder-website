@@ -1,0 +1,332 @@
+{% load static %}
+<! doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- font AweSome css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>{% block title%} {% endblock%}</title>
+    {% block css%}
+    <style>
+
+
+
+    </style>
+    {% endblock%}
+
+</head>
+
+<body>
+
+
+    <!-- navbar -->
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" >ResumeUp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user_resume/">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user_cv/">Cover Letter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog/">Blogs</a>
+                        </li>
+                    </ul>
+
+
+
+                    <form class="d-flex">
+
+
+                        <ul class="navbar-nav" style="color: gray;">
+                            {% if user.is_authenticated %}
+
+                            <!-- User trigger modal -->
+
+
+                            <li class="nav-item">
+                                <a type="button" class="nav-link" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    {{user.username}}
+
+                                </a>
+                            </li>
+
+                            <!-- Login trigger modal -->
+                            <li class="nav-item">
+                                <a type="button" href="/user_logout/" class="nav-link">
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    Logout
+                                </a>
+                            </li>
+
+                            {% else %}
+                            <!-- Register trigger modal -->
+                            <li class="nav-item">
+                                <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#regModal">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                    Register
+                                </a>
+                            </li>
+
+                            <!-- Login trigger modal -->
+                            <li class="nav-item">
+                                <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+
+                                    Login
+                                </a>
+                            </li>
+
+                            <!-- Login trigger modal................2 -->
+
+                            
+
+                            {% endif %}
+                        </ul>
+
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+        
+    
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/user_login/" method="POST">{% csrf_token %}
+                        <!-- <input type="hidden" name="csrfmiddlewaretoken" id="csrfmiddlewaretoken"> -->
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control" aria-describedby="emailHelp" name="login_email">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="text" class="form-control" aria-describedby="emailHelp" name="login_pass">
+                        </div>
+
+                        <button type="submit" class="btn btn-dark" id="edit_button">Login</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="regModal" tabindex="-1" aria-labelledby="regModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="regModalLabel">
+                        <i class="fa fa-address-book" aria-hidden="true"></i>
+                        Registration
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/user_reg/" method="POST">{% csrf_token %}
+                        {% for fm in form %}
+                        <div class="mb-3">
+                            <label class="form-label">{{fm.label}}</label>
+                            {{fm}}
+                        </div>
+                        {% endfor%}
+
+                        <button type="submit" class="btn btn-dark">Register</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </form>
+                </div>
+                <div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Already have an account? <a href="/user_login/" class="ml-2">Login</a>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Model -->
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Welcome {{user.username}}</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Your Details
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-dark fs-5">
+                            <strong>User Name</strong> : {{user.username}} <br>
+                            <strong>Email</strong> : {{user.email}}
+                            <br><br>
+                            <br>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Resume
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                            <div style="height: 200px; width: 200px; color: black;">
+                                <h5>Here is the collection of your saved Resumes</h5>
+                                <a href="/get_savedResume/" class="btn btn-dark">See Collection</a>
+                            </div>
+                            <br>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Cv
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            blog
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block body%}
+
+    {% endblock %}
+
+    <!-- script for login module -->
+    <!-- <script>
+
+        $('#login_button').click(function(event){
+    
+            fromData={
+                'email': $('input[name=login_email]').val(),
+                'password': $('input[name=login_pass]').val(),
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+            };
+    
+            $.ajax({
+                type:'POST',
+                url : '/user_login/',
+                data : fromData,
+                encode : true
+            })
+            .done(function(data1){
+                data = JSON.parse(data1)
+    
+                if(data['res'] == false){
+                    swal("Invalid", "Kindly Check Your Credentials", "danger");
+                }else{
+                    swal("Welcome", "Kindly Check Your Credentials", "danger");
+                }
+    
+            })
+    
+            event.preventDefault();
+        });
+    
+    
+    </script> -->
+
+
+    {% block js %}
+
+    {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+</body>
+
+</html>
